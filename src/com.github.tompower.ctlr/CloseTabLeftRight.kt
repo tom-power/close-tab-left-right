@@ -3,12 +3,11 @@ package com.github.tompower.ctlr
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 
-open class CloseTabLeftRight {
+class CloseTabLeftRight(val event: AnActionEvent, val direction: Direction) {
 
-    fun exec(event: AnActionEvent, direction: Direction) {
+    fun exec() {
         val editorManager = FileEditorManagerEx.getInstanceEx(event.project!!)
-        val files = direction.files(editorManager)
-        files.forEach { f -> editorManager.currentWindow.closeFile(f) }
+        Files(editorManager, direction).getFiles().forEach { f -> editorManager.currentWindow.closeFile(f) }
     }
 
 }

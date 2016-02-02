@@ -1,3 +1,4 @@
-**Close tabs left right**
+**Close Editor Tabs Left Right**
 
-InteliJ plugin you can use to close the tabs to the left or right of your current one.. 
+IntelliJ plugin to close all open editor tabs to the left and right of your current one, includes actions and context menu items.
+ 

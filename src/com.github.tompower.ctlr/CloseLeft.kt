@@ -4,9 +4,8 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.DumbAware
 
-
 class CloseLeft : AnAction(), DumbAware {
     override fun actionPerformed(event: AnActionEvent) {
-        CloseTabLeftRight().exec(event, Direction(LeftRight.LEFT))
+        CloseTabLeftRight(event, Direction.LEFT).exec()
     }
 }
