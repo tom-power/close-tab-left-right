@@ -5,9 +5,15 @@ import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 
 class CloseTabLeftRight(val event: AnActionEvent, val direction: Direction) {
 
-    fun exec() {
-        val editorManager = FileEditorManagerEx.getInstanceEx(event.project!!)
-        Files(editorManager, direction).getFiles().forEach { f -> editorManager.currentWindow.closeFile(f) }
+    val editorManager = FileEditorManagerEx.getInstanceEx(event.project!!)
+    val files = Files(editorManager, direction).getFiles()
+
+    fun closeFiles() {
+        files.forEach { f -> editorManager.currentWindow.closeFile(f) }
+    }
+
+    fun contextItemEnabled() {
+        event.presentation.isEnabled = !files.isEmpty()
     }
 
 }
