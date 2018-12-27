@@ -1,0 +1,33 @@
+<idea-plugin version="2">
+    <id>com.github.tom-power.close-tab-left-right</id>
+    <name>Close Editor Tabs Left Right</name>
+    <version>1.1</version>
+    <vendor email="" url="https://github.com/tom-power/close-tab-left-right">Tom Power</vendor>
+
+    <description>
+        <![CDATA[
+            IntelliJ plugin to close all open editor tabs to the left and right of your current one, includes actions and context menu items.<br>
+        ]]>
+    </description>
+
+    <change-notes><![CDATA[]]>
+    </change-notes>
+
+    <idea-version since-build="141.0" until-build="183.4284.148"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="CloseTabsRight" class="com.github.tompower.ctlr.CloseRight" text="Close All to Right">
+            <add-to-group group-id="EditorTabPopupMenu" relative-to-action="CloseEditorsGroup" anchor="after"/>
+        </action>
+        <action id="CloseTabsLeft" class="com.github.tompower.ctlr.CloseLeft" text="Close All to Left">
+            <add-to-group group-id="EditorTabPopupMenu" relative-to-action="CloseEditorsGroup" anchor="after"/>
+        </action>
+    </actions>
+
+</idea-plugin>
