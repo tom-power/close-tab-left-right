@@ -1,18 +1,16 @@
 package com.github.tompower.ctlr
 
+import com.github.tompower.ctlr.Direction.LEFT
+import com.github.tompower.ctlr.Direction.RIGHT
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 import com.intellij.openapi.vfs.VirtualFile
 
-internal fun Files(
-    editorManager: FileEditorManagerEx,
-    direction: Direction
-): List<VirtualFile> =
-    if (!editorManager.hasOpenedFile()) {
+internal fun FileEditorManagerEx.files(direction: Direction): List<VirtualFile> =
+    if (!hasOpenedFile()) {
         emptyList()
     } else {
-        with(editorManager.currentWindow.files) {
-            val currentFileIndex = indexOf(editorManager.currentFile)
-            filter { indexOf(it) toThe direction of currentFileIndex }
+        currentWindow.files.run {
+            filter { indexOf(it) toThe direction of indexOf(currentFile) }
         }
     }
 
@@ -24,7 +22,7 @@ internal class ToThe(
 ) {
     infix fun of(other: Int): Boolean =
         when (direction) {
-            Direction.LEFT -> index < other
-            Direction.RIGHT -> index > other
+            LEFT -> index < other
+            RIGHT -> index > other
         }
 }

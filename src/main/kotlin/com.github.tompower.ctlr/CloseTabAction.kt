@@ -1,12 +1,14 @@
 package com.github.tompower.ctlr
 
+import com.github.tompower.ctlr.Direction.LEFT
+import com.github.tompower.ctlr.Direction.RIGHT
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.DumbAware
 
-class CloseRight : CloseTabAction(Direction.RIGHT)
+class CloseRight : CloseTabAction(RIGHT)
 
-class CloseLeft : CloseTabAction(Direction.LEFT)
+class CloseLeft : CloseTabAction(LEFT)
 
 open class CloseTabAction(
     private val direction: Direction

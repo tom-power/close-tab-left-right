@@ -8,7 +8,7 @@ internal class CloseTabLeftRight(
     private val event: AnActionEvent,
     private val direction: Direction,
     private val editorManager: FileEditorManagerEx = FileEditorManagerEx.getInstanceEx(event.project!!),
-    private val files: List<VirtualFile> = Files(editorManager, direction)
+    private val files: List<VirtualFile> = editorManager.files(direction)
 ) {
     fun closeFiles() {
         files.forEach { editorManager.currentWindow.closeFile(it) }
