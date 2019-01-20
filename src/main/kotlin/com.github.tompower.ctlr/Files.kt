@@ -10,13 +10,13 @@ internal fun FileEditorManagerEx.files(direction: Direction): List<VirtualFile> 
         emptyList()
     } else {
         currentWindow.files.run {
-            filter { indexOf(it) toThe direction of indexOf(currentFile) }
+            filter { indexOf(it) isToThe direction of indexOf(currentFile) }
         }
     }
 
-internal infix fun Int.toThe(direction: Direction) = ToThe(this, direction)
+internal infix fun Int.isToThe(direction: Direction) = IsToThe(this, direction)
 
-internal class ToThe(
+internal class IsToThe(
     private val index: Int,
     private val direction: Direction
 ) {
