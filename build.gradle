@@ -39,14 +39,8 @@ intellij {
     pluginName 'close-tab-left-right'
     plugins = ["org.jetbrains.kotlin:$kotlin_version-release-IJ2018.3-1"]
 
-    patchPluginXml {
-        sinceBuild '141.0'
-        untilBuild '183.1044'
-    }
-
     publishPlugin {
-        username publishUsername
-        password publishPassword
+        token publishToken
     }
 }
 
